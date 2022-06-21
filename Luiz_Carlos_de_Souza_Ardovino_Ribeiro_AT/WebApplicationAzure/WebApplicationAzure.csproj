@@ -4,10 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationInsightsResourceId>/subscriptions/14cb40c9-1b82-461f-af45-60964f6d13f7/resourceGroups/ProjetoSQL/providers/microsoft.insights/components/teste1</ApplicationInsightsResourceId>
+    <UserSecretsId>5a8c96d0-81b4-478b-adc1-166901250a52</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.12.0" />
+    <PackageReference Include="Azure.Storage.Queues" Version="12.10.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
     <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="3.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
@@ -17,6 +21,10 @@
 
   <ItemGroup>
     <Folder Include="Imagens\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FunctionAppSocialNetwork\FunctionAppSocialNetwork.csproj" />
   </ItemGroup>
 
 </Project>

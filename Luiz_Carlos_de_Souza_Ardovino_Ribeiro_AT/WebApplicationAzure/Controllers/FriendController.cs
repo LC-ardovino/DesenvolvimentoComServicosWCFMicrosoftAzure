@@ -8,11 +8,20 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.Azure;
 using Newtonsoft.Json;
 using Azure.Storage.Blobs;
+using Azure.Storage.Queues;
+using System.Configuration;
 
 namespace WebApplicationAzure.Controllers
 {
     public class FriendController : Controller
     {
+        private IConfiguration Configuration;
+
+        public FriendController(IConfiguration _configuration)
+        {
+            Configuration = _configuration;
+        }
+
         // GET: FriendController
         public ActionResult Index()
         {
@@ -58,26 +67,32 @@ namespace WebApplicationAzure.Controllers
         // GET: FriendController/Details/5
         public ActionResult Details(int id)
         {
+
+            if (CreateQueue("friend-queue"))
+            {
+                InsertMessage("friend-queue", id.ToString());
+            }
+
             FriendModel friend = null;
 
             var connectionString = "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
             using (var connection = new SqlConnection(connectionString))
             {
-                //
-                var procedureName = "UpdateDetailsViews";
-                var sqlCommandUpdate = new SqlCommand(procedureName, connection);
+                //A azure function 'e quem faz esta atualizacao abaixo
+                //var procedureName = "UpdateDetailsViews";
+                //var sqlCommandUpdate = new SqlCommand(procedureName, connection);
 
-                sqlCommandUpdate.CommandType = CommandType.StoredProcedure;
-                sqlCommandUpdate.Parameters.AddWithValue("@Id", id);
+                //sqlCommandUpdate.CommandType = CommandType.StoredProcedure;
+                //sqlCommandUpdate.Parameters.AddWithValue("@Id", id);
 
                 connection.Open();
-                sqlCommandUpdate.ExecuteNonQuery();
-  
+                //sqlCommandUpdate.ExecuteNonQuery();
+
                 //
 
 
-                procedureName = "ReadFriend";
+                var procedureName = "ReadFriend";
                 var sqlCommand = new SqlCommand(procedureName, connection);
 
                 sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -85,7 +100,7 @@ namespace WebApplicationAzure.Controllers
 
                 try
                 {
-        
+
                     using (var reader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection))
                     {
                         if (reader.Read())
@@ -156,7 +171,7 @@ namespace WebApplicationAzure.Controllers
                     connection.Open();
                     sqlCommand.ExecuteNonQuery();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     throw ex;
                 }
@@ -230,11 +245,11 @@ namespace WebApplicationAzure.Controllers
                 var uri = new Uri(fileUrlOld);
                 fileNameOld = Path.GetFileName(uri.LocalPath);
             }
-          
+
 
             string localFilePath = Path.Combine(localPath, fileName);
 
-           
+
             var connectionString = "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
             using (var connection = new SqlConnection(connectionString))
@@ -396,6 +411,82 @@ namespace WebApplicationAzure.Controllers
         {
             string ext = Path.GetExtension(filename);
             return string.Format("{0:10}_{1}{2}", DateTime.Now.Ticks, Guid.NewGuid(), ext);
+        }
+
+        //Create the queue service client
+        public void CreateQueueClient(string queueName)
+        {
+            // Get the connection string from app settings
+            var connectionString = System.Configuration.ConfigurationManager.AppSettings["StorageConnectionString"];
+
+            // Instantiate a QueueClient which will be used to create and manipulate the queue
+            QueueClient queueClient = new QueueClient(connectionString, queueName);
+        }
+
+       
+
+        //-------------------------------------------------
+        // Create a message queue
+        //-------------------------------------------------
+        public bool CreateQueue(string queueName)
+        {
+            try
+            {
+                // Get the connection string from app settings
+                string connectionString = this.Configuration.GetSection("AppSettings")["StorageConnectionString"];
+                
+
+                // Instantiate a QueueClient which will be used to create and manipulate the queue
+                QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+                // Create the queue
+                queueClient.CreateIfNotExists();
+
+                if (queueClient.Exists())
+                {
+                    Console.WriteLine($"Queue created: '{queueClient.Name}'");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine($"Make sure the Azurite storage emulator running and try again.");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception: {ex.Message}\n\n");
+                Console.WriteLine($"Make sure the Azurite storage emulator running and try again.");
+                return false;
+            }
+        }
+
+        //-------------------------------------------------
+        // Insert a message into a queue
+        //-------------------------------------------------
+        public void InsertMessage(string queueName, string message)
+        {
+            // Get the connection string from app settings
+            string connectionString = this.Configuration.GetSection("AppSettings")["StorageConnectionString"];
+
+            // Instantiate a QueueClient which will be used to create and manipulate the queue
+            //QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+            QueueClient queueClient = new QueueClient(connectionString, queueName, new QueueClientOptions
+            {
+                MessageEncoding = QueueMessageEncoding.Base64
+            });
+
+            // Create the queue if it doesn't already exist
+            queueClient.CreateIfNotExists();
+
+            if (queueClient.Exists())
+            {
+                // Send a message to the queue
+                queueClient.SendMessage(message);
+            }
+
+            Console.WriteLine($"Inserted: {message}");
         }
 
 
