@@ -1,7 +1,8 @@
 {
-    "IsEncrypted": false,
-    "Values": {
-        "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=storageardovino;AccountKey=rIWRyN0vVMDBY5b1mPK+gOCKOhowKUajYFQ0eOsbDQCFEk5T7YglInupgt6ILzdyQPaQ6qEja9tF+AStkGRo1g==;BlobEndpoint=https://storageardovino.blob.core.windows.net/;TableEndpoint=https://storageardovino.table.core.windows.net/;QueueEndpoint=https://storageardovino.queue.core.windows.net/;FileEndpoint=https://storageardovino.file.core.windows.net/",
-        "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-    }
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=storageardovino;AccountKey=rIWRyN0vVMDBY5b1mPK+gOCKOhowKUajYFQ0eOsbDQCFEk5T7YglInupgt6ILzdyQPaQ6qEja9tF+AStkGRo1g==;BlobEndpoint=https://storageardovino.blob.core.windows.net/;TableEndpoint=https://storageardovino.table.core.windows.net/;QueueEndpoint=https://storageardovino.queue.core.windows.net/;FileEndpoint=https://storageardovino.file.core.windows.net/",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "DefaultConnection": "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  }
 }

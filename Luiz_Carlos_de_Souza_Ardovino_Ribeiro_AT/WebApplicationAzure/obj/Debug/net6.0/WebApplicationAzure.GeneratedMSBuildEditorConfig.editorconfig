@@ -8,57 +8,57 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApplicationAzure
 build_property.RootNamespace = WebApplicationAzure
-build_property.ProjectDir = C:\Users\User\Documents\GitHub\DesenvolvimentoComServicosWCFMicrosoftAzure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\WebApplicationAzure\
+build_property.ProjectDir = C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\WebApplicationAzure\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User\Documents\GitHub\DesenvolvimentoComServicosWCFMicrosoftAzure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\WebApplicationAzure
+build_property.MSBuildProjectDirectory = C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\WebApplicationAzure
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Create.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJpZW5kXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Delete.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJpZW5kXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Details.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJpZW5kXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Edit.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJpZW5kXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Index.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Friend/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJpZW5kXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Home/Index.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Home/Privacy.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Shared/Error.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/_ViewImports.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/_ViewStart.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/DesenvolvimentoComServicosWCFMicrosoftAzure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Shared/_Layout.cshtml]
+[C:/Luiz/Azure/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT/WebApplicationAzure/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-glh91qt2c0

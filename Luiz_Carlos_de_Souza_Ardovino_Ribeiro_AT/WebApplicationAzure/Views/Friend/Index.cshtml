@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebApplicationAzure.Models.FriendModel>
+﻿@model IEnumerable<App.BLL.Models.Friend>
 
 @{
     ViewData["Title"] = "Amigos";
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.BirthDate)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id=item.Id  }) |
-                @Html.ActionLink("Detalhes", "Details", new { id=item.Id  }) |
-                @Html.ActionLink("Excluir", "Delete", new { id=item.Id  })
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.Id" class=" btn btn-warning">Detalhe</a> 
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Apagar</a> 
             </td>
         </tr>
 }

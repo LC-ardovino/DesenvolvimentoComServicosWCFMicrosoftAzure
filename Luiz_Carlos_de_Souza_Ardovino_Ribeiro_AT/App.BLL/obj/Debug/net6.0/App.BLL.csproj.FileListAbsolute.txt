@@ -1,0 +1,12 @@
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\bin\Debug\net6.0\App.BLL.deps.json
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\bin\Debug\net6.0\App.BLL.dll
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\bin\Debug\net6.0\App.BLL.pdb
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\obj\Debug\net6.0\App.BLL.csproj.AssemblyReference.cache
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\obj\Debug\net6.0\App.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\obj\Debug\net6.0\App.BLL.AssemblyInfoInputs.cache
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\obj\Debug\net6.0\App.BLL.AssemblyInfo.cs
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\obj\Debug\net6.0\App.BLL.csproj.CoreCompileInputs.cache
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\obj\Debug\net6.0\App.BLL.dll
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\obj\Debug\net6.0\refint\App.BLL.dll
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\obj\Debug\net6.0\App.BLL.pdb
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.BLL\obj\Debug\net6.0\ref\App.BLL.dll

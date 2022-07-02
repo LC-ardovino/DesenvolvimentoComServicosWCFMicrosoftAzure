@@ -10,62 +10,34 @@ using Newtonsoft.Json;
 using Azure.Storage.Blobs;
 using Azure.Storage.Queues;
 using System.Configuration;
+using App.BLL.Models;
+using App.DAL.Repositories;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace WebApplicationAzure.Controllers
 {
     public class FriendController : Controller
     {
         private IConfiguration Configuration;
+        private readonly IFriendRepository _repository;
 
-        public FriendController(IConfiguration _configuration)
+        public FriendController(IConfiguration _configuration, IFriendRepository repository)
         {
             Configuration = _configuration;
+            _repository = repository;
         }
 
         // GET: FriendController
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var friends = new List<FriendModel>();
-            var connectionString = "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var procedureName = "ReadFriends";
-                var sqlCommand = new SqlCommand(procedureName, connection);
-
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-
-                try
-                {
-                    connection.Open();
-                    using (var reader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection))
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                var friend = new FriendModel
-                                {
-                                    Id = (int)reader["Id"],
-                                    FirstName = reader["FirstName"].ToString(),
-                                    LastName = reader["LastName"].ToString(),
-                                    BirthDate = (DateTime)reader["BirthDate"]
-                                };
-                                friends.Add(friend);
-                            }
-                        }
-                    }
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            var result = await _repository.GetAll();
+            List<Friend> friends = result.ToList();
             return View(friends);
         }
 
         // GET: FriendController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult<Friend>> Details(int id)
         {
 
             if (CreateQueue("friend-queue"))
@@ -73,55 +45,9 @@ namespace WebApplicationAzure.Controllers
                 InsertMessage("friend-queue", id.ToString());
             }
 
-            FriendModel friend = null;
+            Friend friend = null;
 
-            var connectionString = "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                //A azure function 'e quem faz esta atualizacao abaixo
-                //var procedureName = "UpdateDetailsViews";
-                //var sqlCommandUpdate = new SqlCommand(procedureName, connection);
-
-                //sqlCommandUpdate.CommandType = CommandType.StoredProcedure;
-                //sqlCommandUpdate.Parameters.AddWithValue("@Id", id);
-
-                connection.Open();
-                //sqlCommandUpdate.ExecuteNonQuery();
-
-                //
-
-
-                var procedureName = "ReadFriend";
-                var sqlCommand = new SqlCommand(procedureName, connection);
-
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id", id);
-
-                try
-                {
-
-                    using (var reader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection))
-                    {
-                        if (reader.Read())
-                        {
-                            friend = new FriendModel
-                            {
-                                Id = (int)reader["Id"],
-                                FirstName = reader["FirstName"].ToString(),
-                                LastName = reader["LastName"].ToString(),
-                                BirthDate = (DateTime)reader["BirthDate"],
-                                Views = (int)reader["Views"],
-                                PictureUrl = reader["PictureUrl"].ToString()
-                            };
-                        }
-                    }
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            friend = await _repository.GetById(id);
             return View(friend);
         }
 
@@ -137,92 +63,39 @@ namespace WebApplicationAzure.Controllers
         public async Task<ActionResult> Create(IFormCollection collection)
         {
 
-            // Create a local file in the ./data/ directory for uploading and downloading
             string localPath = "./Imagens/";
             string fileName = Request.Form["PictureUrl"];
-            string localFilePath = Path.Combine(localPath, fileName);
+            
 
+            Friend friend = new Friend();
 
-
-            FriendModel friends = null;
-
-            var connectionString = "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var procedureName = "CreateFriend";
-                var sqlCommand = new SqlCommand(procedureName, connection);
-
-                string id = Request.Form["Id"];
-                string firstName = Request.Form["FirstName"];
-                string lastName = Request.Form["LastName"];
-                string birthDate = Request.Form["BirthDate"];
-                string pictureUrl = await CreateBlob(localFilePath);
-
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id", id);
-                sqlCommand.Parameters.AddWithValue("@FirstName", firstName);
-                sqlCommand.Parameters.AddWithValue("@LastName", lastName);
-                sqlCommand.Parameters.AddWithValue("@BirthDate", birthDate);
-                sqlCommand.Parameters.AddWithValue("@PictureUrl", pictureUrl);
-
-                try
+            try
+            {               
+                friend.FirstName = Request.Form["FirstName"];
+                friend.LastName = Request.Form["LastName"];
+                friend.BirthDate = Convert.ToDateTime(Request.Form["BirthDate"]);
+                if (fileName != "")
                 {
-                    connection.Open();
-                    sqlCommand.ExecuteNonQuery();
+                    string localFilePath = Path.Combine(localPath, fileName);
+                    friend.PictureUrl = await CreateBlob(localFilePath);
                 }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    connection.Close();
-                }
+ 
+                _repository.Create(friend);
+                return RedirectToAction(nameof(Index));
             }
-            return View(friends);
+            catch
+            {
+                return View(friend);
+            }
+
+            return View(friend);
         }
 
         // GET: FriendController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
 
-
-            FriendModel friend = null;
-
-            var connectionString = "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var procedureName = "ReadFriend";
-                var sqlCommand = new SqlCommand(procedureName, connection);
-
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id", id);
-
-                try
-                {
-                    connection.Open();
-                    using (var reader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection))
-                    {
-                        if (reader.Read())
-                        {
-                            friend = new FriendModel
-                            {
-                                Id = (int)reader["Id"],
-                                FirstName = reader["FirstName"].ToString(),
-                                LastName = reader["LastName"].ToString(),
-                                BirthDate = (DateTime)reader["BirthDate"],
-                                PictureUrl = reader["PictureUrl"].ToString()
-                            };
-                        }
-                    }
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            var friend = await _repository.GetById(id);
             return View(friend);
         }
 
@@ -231,106 +104,60 @@ namespace WebApplicationAzure.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(int id, IFormCollection collection)
         {
+            Friend friend = new Friend();
 
             string pictureUrl = "";
 
-            // Create a local file in the ./data/ directory for uploading and downloading
+            // Create a local file in the ./Imagens/ directory for uploading and downloading
             string localPath = "./Imagens/";
             string fileName = Request.Form["PictureUrlNovo"];
             string fileUrlOld = Request.Form["PictureUrl"];
             string fileNameOld = "";
+            string localFilePath = "";
 
-            if (fileUrlOld != string.Empty)
+            if (fileUrlOld != string.Empty )
             {
                 var uri = new Uri(fileUrlOld);
                 fileNameOld = Path.GetFileName(uri.LocalPath);
+                localFilePath = fileUrlOld;
+                friend.PictureUrl = localFilePath;
             }
 
 
-            string localFilePath = Path.Combine(localPath, fileName);
-
-
-            var connectionString = "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
-            using (var connection = new SqlConnection(connectionString))
+            try
             {
-                var procedureName = "UpdateFriend";
-                var sqlCommand = new SqlCommand(procedureName, connection);
-
-                string firstName = Request.Form["FirstName"];
-                string lastName = Request.Form["LastName"];
-                string birthDate = Request.Form["BirthDate"];
                 if (fileName != string.Empty)
                 {
                     if (fileUrlOld != string.Empty)
                     {
+                        fileNameOld = Path.Combine(localPath, fileNameOld);
                         DeleteBlob(fileNameOld);
                     }
+                    localFilePath = Path.Combine(localPath, fileName);
                     pictureUrl = await CreateBlob(localFilePath);
+                    friend.PictureUrl = pictureUrl;// await CreateBlob(localFilePath);
+
                 }
 
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id", id);
-                sqlCommand.Parameters.AddWithValue("@FirstName", firstName);
-                sqlCommand.Parameters.AddWithValue("@LastName", lastName);
-                sqlCommand.Parameters.AddWithValue("@BirthDate", birthDate);
-                sqlCommand.Parameters.AddWithValue("@PictureUrl", pictureUrl);
+                friend.Id = int.Parse(Request.Form["Id"]);
+                friend.FirstName = Request.Form["FirstName"];
+                friend.LastName = Request.Form["LastName"];
+                friend.BirthDate = Convert.ToDateTime(Request.Form["BirthDate"]);
 
-                try
-                {
-                    connection.Open();
-                    sqlCommand.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    connection.Close();
-                }
+                _repository.Update(friend);
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            catch
+            {
+                return View();
+            }
+
         }
 
         // GET: FriendController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            FriendModel friend = null;
-
-            var connectionString = "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var procedureName = "ReadFriend";
-                var sqlCommand = new SqlCommand(procedureName, connection);
-
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id", id);
-
-                try
-                {
-                    connection.Open();
-                    using (var reader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection))
-                    {
-                        if (reader.Read())
-                        {
-                            friend = new FriendModel
-                            {
-                                Id = (int)reader["Id"],
-                                FirstName = reader["FirstName"].ToString(),
-                                LastName = reader["LastName"].ToString(),
-                                BirthDate = (DateTime)reader["BirthDate"],
-                                PictureUrl = reader["PictureUrl"].ToString()
-                            };
-                        }
-                    }
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            var friend = await _repository.GetById(id);
             return View(friend);
         }
 
@@ -343,47 +170,36 @@ namespace WebApplicationAzure.Controllers
             string fileUrl = Request.Form["PictureUrl"];
             string fileName = "";
 
-            if (fileUrl != string.Empty)
+            try
             {
-                var uri = new Uri(fileUrl);
-                fileName = "/Imagens/" + Path.GetFileName(uri.LocalPath);
-                DeleteBlob(fileName);
+                Friend friend = new Friend();
+
+                if (fileUrl != string.Empty)
+                {
+                    var uri = new Uri(fileUrl);
+                    fileName = "/Imagens/" + Path.GetFileName(uri.LocalPath);
+                    DeleteBlob(fileName);
+                }
+
+                friend.Id = id;
+
+                _repository.Delete(friend);
+                return RedirectToAction(nameof(Index));
             }
-
-            var connectionString = "Data Source=infnetsql.database.windows.net;Initial Catalog=InfnetDBSample;User ID=ServerAdmin;Password=luizufrj@123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
-            using (var connection = new SqlConnection(connectionString))
+            catch
             {
-                var procedureName = "DeleteFriend";
-                var sqlCommand = new SqlCommand(procedureName, connection);
-
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id", id);
-
-                try
-                {
-                    connection.Open();
-                    sqlCommand.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    connection.Close();
-                }
+                return View();
             }
-            return RedirectToAction(nameof(Index));
         }
 
         private async Task<string> CreateBlob(string fileName)
 
         {
-            string StorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=storageardovino;AccountKey=rIWRyN0vVMDBY5b1mPK+gOCKOhowKUajYFQ0eOsbDQCFEk5T7YglInupgt6ILzdyQPaQ6qEja9tF+AStkGRo1g==;EndpointSuffix=core.windows.net";
+            string StorageConnectionString = this.Configuration.GetSection("AppSettings")["StorageConnectionString"];
 
             BlobServiceClient blobServiceClient = new BlobServiceClient(StorageConnectionString);
-            var blobContainerName = "imagensardovino";
+
+            var blobContainerName = this.Configuration.GetSection("AppSettings")["BlobContainerName"]; //"imagensardovino";
             var blobContainer = blobServiceClient.GetBlobContainerClient(blobContainerName);
 
             BlobClient blobClient = blobContainer.GetBlobClient(fileName);
@@ -396,10 +212,10 @@ namespace WebApplicationAzure.Controllers
         private async void DeleteBlob(string fileName)
 
         {
-            string StorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=storageardovino;AccountKey=rIWRyN0vVMDBY5b1mPK+gOCKOhowKUajYFQ0eOsbDQCFEk5T7YglInupgt6ILzdyQPaQ6qEja9tF+AStkGRo1g==;EndpointSuffix=core.windows.net";
+            string StorageConnectionString = this.Configuration.GetSection("AppSettings")["StorageConnectionString"];
 
             BlobServiceClient blobServiceClient = new BlobServiceClient(StorageConnectionString);
-            var blobContainerName = "imagensardovino";
+            var blobContainerName = this.Configuration.GetSection("AppSettings")["BlobContainerName"]; //"imagensardovino";
             var blobContainer = blobServiceClient.GetBlobContainerClient(blobContainerName);
 
             BlobClient blobClient = blobContainer.GetBlobClient(fileName);
@@ -432,12 +248,10 @@ namespace WebApplicationAzure.Controllers
         {
             try
             {
-                // Get the connection string from app settings
-                string connectionString = this.Configuration.GetSection("AppSettings")["StorageConnectionString"];
+                string StorageConnectionString = this.Configuration.GetSection("AppSettings")["StorageConnectionString"];
                 
-
                 // Instantiate a QueueClient which will be used to create and manipulate the queue
-                QueueClient queueClient = new QueueClient(connectionString, queueName);
+                QueueClient queueClient = new QueueClient(StorageConnectionString, queueName);
 
                 // Create the queue
                 queueClient.CreateIfNotExists();
@@ -470,7 +284,6 @@ namespace WebApplicationAzure.Controllers
             string connectionString = this.Configuration.GetSection("AppSettings")["StorageConnectionString"];
 
             // Instantiate a QueueClient which will be used to create and manipulate the queue
-            //QueueClient queueClient = new QueueClient(connectionString, queueName);
 
             QueueClient queueClient = new QueueClient(connectionString, queueName, new QueueClientOptions
             {

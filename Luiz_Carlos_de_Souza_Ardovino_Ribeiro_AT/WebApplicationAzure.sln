@@ -5,7 +5,11 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationAzure", "WebApplicationAzure\WebApplicationAzure.csproj", "{55EB52CF-9B3A-4FBD-9375-0E46106C815C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionAppSocialNetwork", "FunctionAppSocialNetwork\FunctionAppSocialNetwork.csproj", "{741FECAB-C09F-4FDD-81CD-06182E968961}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionAppSocialNetwork", "FunctionAppSocialNetwork\FunctionAppSocialNetwork.csproj", "{741FECAB-C09F-4FDD-81CD-06182E968961}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.BLL", "App.BLL\App.BLL.csproj", "{544B454F-BFBE-4CAA-8962-CAC95FCB0464}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.DAL", "App.DAL\App.DAL.csproj", "{3D047FD6-CCB6-4638-A269-856543EDA313}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{741FECAB-C09F-4FDD-81CD-06182E968961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{741FECAB-C09F-4FDD-81CD-06182E968961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{741FECAB-C09F-4FDD-81CD-06182E968961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{544B454F-BFBE-4CAA-8962-CAC95FCB0464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{544B454F-BFBE-4CAA-8962-CAC95FCB0464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{544B454F-BFBE-4CAA-8962-CAC95FCB0464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{544B454F-BFBE-4CAA-8962-CAC95FCB0464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D047FD6-CCB6-4638-A269-856543EDA313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D047FD6-CCB6-4638-A269-856543EDA313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D047FD6-CCB6-4638-A269-856543EDA313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D047FD6-CCB6-4638-A269-856543EDA313}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿@model WebApplicationAzure.Models.FriendModel
+﻿@model App.BLL.Models.Friend
 
 @{
     ViewData["Title"] = "Excluir";
@@ -10,6 +10,9 @@
 <div>
     <h4>Amigo</h4>
     <hr />
+
+    <form asp-action="Delete">
+
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Id)
@@ -38,9 +41,9 @@
     </dl>
     
 
-    <form asp-action="Delete">
+    
         <input type="hidden" asp-for="PictureUrl" id="PictureUrl" value=@Model.PictureUrl/>
         <input type="submit" value="Excluir" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar</a>
+        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
     </form>
 </div>

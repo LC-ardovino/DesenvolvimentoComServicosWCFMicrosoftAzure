@@ -1,0 +1,15 @@
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\bin\Debug\net6.0\App.DAL.deps.json
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\bin\Debug\net6.0\App.DAL.dll
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\bin\Debug\net6.0\App.DAL.pdb
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\App.DAL.csproj.AssemblyReference.cache
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\App.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\App.DAL.AssemblyInfoInputs.cache
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\App.DAL.AssemblyInfo.cs
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\App.DAL.csproj.CoreCompileInputs.cache
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\App.DAL.dll
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\refint\App.DAL.dll
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\App.DAL.pdb
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\ref\App.DAL.dll
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\bin\Debug\net6.0\App.BLL.dll
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\bin\Debug\net6.0\App.BLL.pdb
+C:\Luiz\Azure\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\App.DAL\obj\Debug\net6.0\App.DAL.csproj.CopyComplete

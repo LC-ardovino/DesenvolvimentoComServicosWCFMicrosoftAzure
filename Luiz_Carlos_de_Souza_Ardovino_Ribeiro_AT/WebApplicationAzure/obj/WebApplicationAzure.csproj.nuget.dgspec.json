@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\WebApplicationAzure.csproj": {}
+    "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\WebApplicationAzure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj": {
+    "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\App.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj",
-        "projectName": "FunctionAppSocialNetwork",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\obj\\",
+        "projectUniqueName": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\App.BLL.csproj",
+        "projectName": "App.BLL",
+        "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\App.BLL.csproj",
+        "packagesPath": "C:\\Users\\luiz.ribeiro\\.nuget\\packages\\",
+        "outputPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luiz.ribeiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,6 +28,131 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.DAL\\App.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.DAL\\App.DAL.csproj",
+        "projectName": "App.DAL",
+        "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.DAL\\App.DAL.csproj",
+        "packagesPath": "C:\\Users\\luiz.ribeiro\\.nuget\\packages\\",
+        "outputPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\luiz.ribeiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\App.BLL.csproj": {
+                "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\App.BLL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj",
+        "projectName": "FunctionAppSocialNetwork",
+        "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj",
+        "packagesPath": "C:\\Users\\luiz.ribeiro\\.nuget\\packages\\",
+        "outputPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\luiz.ribeiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\App.BLL.csproj": {
+                "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\App.BLL.csproj"
+              },
+              "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.DAL\\App.DAL.csproj": {
+                "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.DAL\\App.DAL.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -68,21 +193,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\WebApplicationAzure.csproj": {
+    "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\WebApplicationAzure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\WebApplicationAzure.csproj",
+        "projectUniqueName": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\WebApplicationAzure.csproj",
         "projectName": "WebApplicationAzure",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\WebApplicationAzure.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\obj\\",
+        "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\WebApplicationAzure.csproj",
+        "packagesPath": "C:\\Users\\luiz.ribeiro\\.nuget\\packages\\",
+        "outputPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\WebApplicationAzure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luiz.ribeiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,8 +221,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj": {
-                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\DesenvolvimentoComServicosWCFMicrosoftAzure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj"
+              "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\App.BLL.csproj": {
+                "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.BLL\\App.BLL.csproj"
+              },
+              "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.DAL\\App.DAL.csproj": {
+                "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\App.DAL\\App.DAL.csproj"
+              },
+              "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj": {
+                "projectPath": "C:\\Luiz\\Azure\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\Luiz_Carlos_de_Souza_Ardovino_Ribeiro_AT\\FunctionAppSocialNetwork\\FunctionAppSocialNetwork.csproj"
               }
             }
           }
@@ -123,6 +254,24 @@
             "Microsoft.ApplicationInsights.AspNetCore": {
               "target": "Package",
               "version": "[2.20.0, )"
+            },
+            "Microsoft.Azure.Functions.Analyzers": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.6, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -163,7 +312,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
